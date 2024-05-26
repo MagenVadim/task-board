@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import { taskList } from '../db/tasks';
 
 
-export const View = () => {
+export const TaskView = () => {
 
   const {id} = useParams(); 
   const task = taskList.find(tsk=>tsk.id===id)

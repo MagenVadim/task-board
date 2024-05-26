@@ -4,7 +4,8 @@ import {userList} from '../db/users'
 
 export const Task = ({id, description, avatar, type, userID}) => {
 
-    const userFullName = userList.find(usfn => usfn.userID===userID)
+    const userCard = userList.find(usfn => usfn.userID===userID);
+    const fullName = userCard.fullName;
 
   return (
     <div>
@@ -23,9 +24,13 @@ export const Task = ({id, description, avatar, type, userID}) => {
                     
                 </p>
                 <p className="mb-0">
-                    <a href="" className="text-muted"><img src={avatar} alt="task-user" className="thumb-sm rounded-circle mr-2"/>
-                        <span className="font-bold font-secondary">{userFullName.fullName}</span>
-                    </a>
+                    <Link to={`/users/card/${fullName}`}>
+                        <a href="" className="text-muted">
+                            <img src={avatar} alt="task-user" className="thumb-sm rounded-circle mr-2"/>
+                            <span className="font-bold font-secondary">{fullName}</span>
+                        </a>
+                    </Link>
+
                 </p>
             </div>
         </li>

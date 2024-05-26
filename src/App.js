@@ -1,6 +1,7 @@
 import './App.css';
 import { Home } from './pages/Home';
-import { View } from './components/View';
+import { TaskView } from './pages/TaskView';
+import { UserCard } from './pages/UserCard';
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
        <>
           <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/task/view/:id' element={<View/>}/>
+            <Route path='/task/view/:id' element={<TaskView/>}/>
+            <Route path='/users/card/:fullName' element={<UserCard/>}/>
           </Routes>
        </>
   );
