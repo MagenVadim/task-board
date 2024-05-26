@@ -1,21 +1,31 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+import {userList} from '../db/users'
 
-export const Task = ({description, avatar, type}) => {
+export const Task = ({id, description, avatar, type, userID}) => {
+
+    const userFullName = userList.find(usfn => usfn.userID===userID)
+
   return (
     <div>
         <li className="task-warning ui-sortable-handle">
             <div className="checkbox checkbox-custom checkbox-single float-right">
-                <input type="checkbox" aria-label="Single checkbox Two"/>
+                <input className="task-checkbox" type="checkbox" aria-label="Single checkbox Two"/>
                 <label></label>
             </div>{description}
             <p>{type}</p>
             <div className="clearfix"></div>
             <div className="mt-3">
                 <p className="float-right mb-0 mt-2">
-                    <button type="button" className="btn btn-success btn-sm waves-effect waves-light">View</button>
+                    <Link to={`/task/view/${id}`}>
+                        <button type="button" className="btn btn-success btn-sm waves-effect waves-light">View</button>
+                    </Link>
+                    
                 </p>
                 <p className="mb-0">
-                    <a href="" className="text-muted"><img src={avatar} alt="task-user" className="thumb-sm rounded-circle mr-2"/> <span className="font-bold font-secondary">Petey Cruiser</span></a>
+                    <a href="" className="text-muted"><img src={avatar} alt="task-user" className="thumb-sm rounded-circle mr-2"/>
+                        <span className="font-bold font-secondary">{userFullName.fullName}</span>
+                    </a>
                 </p>
             </div>
         </li>

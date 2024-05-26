@@ -1,7 +1,18 @@
-import React from 'react'
+import { useParams } from "react-router-dom"
+import { taskList } from '../db/tasks';
+
 
 export const View = () => {
+
+  const {id} = useParams(); 
+  const task = taskList.find(tsk=>tsk.id===id)
+
   return (
-    <div>View</div>
+    <>
+      <div>{task.type}</div>
+      <div>{task.title}</div>
+      <div>{task.description}</div>
+    </>
+
   )
 }

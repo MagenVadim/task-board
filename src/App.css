@@ -70,6 +70,10 @@ body{
   margin-left: 20px;
   margin-top: 5px
 }
+.task-checkbox{
+  cursor: pointer;
+}
+
 .text-muted {
   color: #98a6ad!important;
 }
@@ -131,6 +135,7 @@ a {
   user-select: none;
   border: 1px solid transparent;  
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  cursor: pointer;
 }
 .btn-add-new{ 
   display: block;
