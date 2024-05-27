@@ -1,5 +1,6 @@
 import { taskList } from '../db/tasks';
 import { Column } from '../components/Column';
+import { Header } from '../components/Header/Header'
 
 export const Home = () => {    
     const upcomingList = taskList.filter(el=>
@@ -15,8 +16,8 @@ export const Home = () => {
   return (
      <div className="content">
             <div className="container">
-                
-                <div className="row">
+                <Header/>
+                <div className="row">                    
                     <Column title={"Upcoming"} cardList={upcomingList}/>
                     <Column title={"In Progress"} cardList={inProgressList}/>
                     <Column title={"Completed"} cardList={completedList}/>

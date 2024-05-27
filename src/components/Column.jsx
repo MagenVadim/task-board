@@ -18,8 +18,6 @@ export const Column = ({title, cardList}) => {
                     />                                        
                 )}
             </ul>
-            <a href="#" className="btn-add-new">
-            <i className="fa fa-plus-circle"></i> Add New</a>
         </div>
       </div>
   )

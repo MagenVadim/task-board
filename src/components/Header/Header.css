@@ -1,0 +1,16 @@
+
+.header{
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+  }
+
+.btn-task-create{
+    height: 50px;
+    width: 80px;
+    border-radius: 5px;
+    cursor: pointer;
+}
