@@ -1,0 +1,46 @@
+.user-card{
+    display: flex;
+    
+}
+.user-header{
+    background-color: rosybrown;
+    display: flex;    
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user-header-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    gap: 20px;
+    min-width: 250px;
+}
+.user-avatar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid grey;
+    width: 100%;
+}
+
+
+.image-userCard{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.user-fullname{
+    margin: 0;
+}
+.user-position{
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.personal-details{
+    margin-bottom: 10px;
+}

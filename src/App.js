@@ -1,7 +1,7 @@
 import './App.css';
 import { Home } from './pages/Home';
 import { TaskView } from './pages/TaskView';
-import { UserCard } from './pages/UserCard';
+import { UserCard } from './pages/UserCard/UserCard';
 import { Routes, Route } from "react-router-dom";
 
 function App() {
