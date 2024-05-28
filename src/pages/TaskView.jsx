@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom"
-import { taskList } from '../db/tasks';
+import { taskListDB } from '../db/tasks';
 
 
 export const TaskView = () => {
 
   const {id} = useParams(); 
-  const task = taskList.find(tsk=>tsk.id===id)
+  const task = taskListDB.find(tsk=>tsk.id===id)
 
   return (
     <>

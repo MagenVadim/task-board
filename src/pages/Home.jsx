@@ -1,15 +1,25 @@
-import { taskList } from '../db/tasks';
+import { taskListDB } from '../db/tasks';
 import { Column } from '../components/Column';
 import { Header } from '../components/Header/Header'
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import {dataLoading} from '../store/taskSlice'
 
-export const Home = () => {    
-    const upcomingList = taskList.filter(el=>
+export const Home = () => { 
+
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(dataLoading([...taskListDB]))
+    },[])
+
+    const upcomingList = taskListDB.filter(el=>
         el.type==="Upcoming"
     );
-    const inProgressList = taskList.filter(el=>
+    const inProgressList = taskListDB.filter(el=>
         el.type==="In Progress"
     );
-    const completedList = taskList.filter(el=>
+    const completedList = taskListDB.filter(el=>
         el.type==="Completed"
     );
 
@@ -18,9 +28,9 @@ export const Home = () => {
             <div className="container">
                 <Header/>
                 <div className="row">                    
-                    <Column title={"Upcoming"} cardList={upcomingList}/>
-                    <Column title={"In Progress"} cardList={inProgressList}/>
-                    <Column title={"Completed"} cardList={completedList}/>
+                    <Column title={"Upcoming"} cardList={upcomingList} />
+                    <Column title={"In Progress"} cardList={inProgressList} />
+                    <Column title={"Completed"} cardList={completedList} />
 
                 </div>       
             </div>    
