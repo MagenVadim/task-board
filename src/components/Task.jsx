@@ -6,12 +6,15 @@ import {removeTask} from '../store/taskSlice'
 
 
 
-export const Task = ({id, description, avatar, type, userID}) => {
+export const Task = ({id, description, type, userID}) => {
+   
+    const userCard = [] ;
+    userID.forEach(element => {
+        userCard.push(userList.find(usfn => usfn.userID===element))
+    });
+    console.log(userCard)
 
-    const userCard = userList.find(usfn => usfn.userID===userID);
-    const fullName = userCard.fullName;
-    const dispatch = useDispatch();
-    
+    const dispatch = useDispatch();    
 
   return (
     <div>
@@ -36,17 +39,21 @@ export const Task = ({id, description, avatar, type, userID}) => {
                             Delete
                     </button>                                      
                 </p>
-                
-                <div className="mb-0">
-                    <Link to={`/users/card/${fullName}`}>
-                        <div className="text-muted">
-                            <img src={avatar} alt="task-user" className="thumb-sm rounded-circle mr-2"/>
-                            <span className="font-bold font-secondary">{fullName}</span>
-                        </div>
-                    </Link>
-                </div>
-            </div>
 
+                <div className="avatar-container">
+                    {userCard.map(user=>
+                            <div key={user.userID} className="mb-0">
+                                <Link to={`/users/card/${user.fullName}`}>
+                                    <div className="text-muted">
+                                        <img src={user.url} alt="task-user" className="thumb-sm rounded-circle mr-2"/>
+                                    </div>
+                                </Link>
+                            </div>
+                        )
+                    }
+                </div>
+
+            </div>
         </li>
     </div>
   )

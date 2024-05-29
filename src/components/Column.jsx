@@ -13,7 +13,6 @@ export const Column = ({title, cardList}) => {
                       key={el.id} 
                       id={el.id} 
                       description={el.description} 
-                      avatar={el.user}
                       userID={el.userID}
                     />                                        
                 )}

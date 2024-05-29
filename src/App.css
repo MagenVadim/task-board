@@ -41,6 +41,9 @@ body{
   -ms-flex: 1;
   flex: 1;
 }
+.avatar-container{
+  display: flex;
+}
 
 
 .thumb-sm {
@@ -97,9 +100,9 @@ body{
   height: 36px;
   width: 36px;
 }
-.mr-2, .mx-2 {
+/* .mr-2, .mx-2 {
   margin-right: .5rem !important;
-}
+} */
 .rounded-circle {
   border-radius: 50% !important;
 }
