@@ -5,7 +5,9 @@ const taskSlice = createSlice({
     initialState:[],
     reducers:{
         dataLoading(state, action){
-            state.push(action.payload)
+            if (state.length===0){
+                state.push(...action.payload)
+            } 
         },
 
         removeTask(state, action){

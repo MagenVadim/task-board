@@ -10,7 +10,7 @@ export const Column = ({title, cardList}) => {
             <ul className="sortable-list taskList list-unstyled ui-sortable" id="upcoming">
                 {cardList.map(el=>                                    
                     <Task 
-                      key={el.id} 
+                      key={el.id}                       
                       id={el.id} 
                       description={el.description} 
                       userID={el.userID}

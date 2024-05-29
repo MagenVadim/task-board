@@ -12,8 +12,7 @@ export const Task = ({id, description, type, userID}) => {
     userID.forEach(element => {
         userCard.push(userList.find(usfn => usfn.userID===element))
     });
-    console.log(userCard)
-
+  
     const dispatch = useDispatch();    
 
   return (
