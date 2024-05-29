@@ -1,17 +1,17 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {userList} from '../db/users'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {removeTask} from '../store/taskSlice'
+
 
 
 export const Task = ({id, description, avatar, type, userID}) => {
 
     const userCard = userList.find(usfn => usfn.userID===userID);
     const fullName = userCard.fullName;
-
-    const taskStore = useSelector(state => state.taskReducer.taskList)
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    
 
   return (
     <div>

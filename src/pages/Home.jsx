@@ -1,25 +1,28 @@
 import { taskListDB } from '../db/tasks';
 import { Column } from '../components/Column';
 import { Header } from '../components/Header/Header'
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import {dataLoading} from '../store/taskSlice'
+import { useSelector, useDispatch } from 'react-redux'
 
 export const Home = () => { 
-
     const dispatch = useDispatch();
-
-    useEffect(()=>{
-        dispatch(dataLoading([...taskListDB]))
+    
+    useEffect(()=>{        
+        taskListDB.forEach(task=>{
+            dispatch(dataLoading(task))            
+        })
     },[])
 
-    const upcomingList = taskListDB.filter(el=>
+    const taskStore = useSelector(state => state.taskReducer)   
+   
+    const upcomingList = taskStore.filter(el=>
         el.type==="Upcoming"
     );
-    const inProgressList = taskListDB.filter(el=>
+    const inProgressList = taskStore.filter(el=>
         el.type==="In Progress"
     );
-    const completedList = taskListDB.filter(el=>
+    const completedList = taskStore.filter(el=>
         el.type==="Completed"
     );
 
