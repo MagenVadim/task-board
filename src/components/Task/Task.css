@@ -1,0 +1,27 @@
+.task-warning{
+    min-height: 110px;
+}
+.priority-High {
+    margin-left: 20px;
+    margin-top: 5px;
+    border: 1px solid grey;
+    padding: 3px;
+    background-color: rgb(223, 87, 87);
+    border-radius: 5px;
+  }
+  .priority-Medium {
+    margin-left: 20px;
+    margin-top: 5px;
+    border: 1px solid grey;
+    padding: 3px;
+    background-color: rgb(212, 223, 87);
+    border-radius: 5px;
+  }
+  .priority-Low {
+    margin-left: 20px;
+    margin-top: 5px;
+    border: 1px solid grey;
+    padding: 3px;
+    background-color: rgb(87, 223, 94);
+    border-radius: 5px;
+  }

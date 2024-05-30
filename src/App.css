@@ -73,19 +73,11 @@ body{
   font-size: 13px
 }
 
-.taskList .checkbox {
-  margin-left: 20px;
-  margin-top: 5px
-}
-.task-checkbox{
-  cursor: pointer;
-}
-
 .text-muted {
   color: #98a6ad!important;
 }
 .mt-3, .my-3 {
-  margin-top: 1rem !important;
+  margin-top: 2rem !important;
 }
 .mt-2, .my-2 {
   margin-top: .5rem !important;
@@ -100,9 +92,7 @@ body{
   height: 36px;
   width: 36px;
 }
-/* .mr-2, .mx-2 {
-  margin-right: .5rem !important;
-} */
+
 .rounded-circle {
   border-radius: 50% !important;
 }

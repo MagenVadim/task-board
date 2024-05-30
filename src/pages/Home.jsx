@@ -12,8 +12,7 @@ export const Home = () => {
     useEffect(()=>{ 
         dispatch(dataLoading(taskListDB)) 
     },[])
-
-      
+     
    
     const upcomingList = taskStore.filter(el=>
         el.type==="Upcoming"

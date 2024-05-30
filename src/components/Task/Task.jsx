@@ -1,12 +1,12 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {userList} from '../db/users'
+import {userList} from '../../db/users'
 import { useDispatch } from 'react-redux'
-import {removeTask} from '../store/taskSlice'
+import {removeTask} from '../../store/taskSlice'
+import styles from './Task.css'
 
 
-
-export const Task = ({id, description, type, userID}) => {
+export const Task = ({id, description, userID, priority}) => {
    
     const userCard = [] ;
     userID.forEach(element => {
@@ -18,19 +18,18 @@ export const Task = ({id, description, type, userID}) => {
   return (
     <div>
         <li className="task-warning ui-sortable-handle">
-            <div className="checkbox checkbox-custom checkbox-single float-right">                                
-            </div>{description}
-            <p>{type}</p>
-            <div className="clearfix"></div>
-
+            <div className={`priority-${priority} float-right`}> 
+                {priority}
+            </div>{description}            
+            
             <div className="mt-3">
-                <p className="float-right mb-0 mt-2">
+                <p className="view-button float-right mb-0 mt-2">
                     <Link to={`/task/view/${id}`}>
                         <button type="button" className="btn btn-success btn-sm waves-effect waves-light">View</button>
                     </Link>                    
                 </p>
 
-                <p className="float-right mb-0 mt-2">                    
+                <p className="delete-button float-right mb-0 mt-2">                    
                     <button 
                         onClick={()=>dispatch(removeTask({id}))} 
                         value={id} type="button" 

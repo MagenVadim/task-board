@@ -1,5 +1,5 @@
 import React from 'react'
-import { Task } from '../components/Task';
+import { Task } from './Task/Task';
 
 
 export const Column = ({title, cardList}) => {
@@ -14,6 +14,7 @@ export const Column = ({title, cardList}) => {
                       id={el.id} 
                       description={el.description} 
                       userID={el.userID}
+                      priority={el.priority}
                     />                                        
                 )}
             </ul>
