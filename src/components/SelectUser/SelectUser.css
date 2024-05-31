@@ -1,5 +1,6 @@
 .select-user-container{
     display: flex;
+    align-items: center;
     gap: 75px;    
 }
 .select-user{

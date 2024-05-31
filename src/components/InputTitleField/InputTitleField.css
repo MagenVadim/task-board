@@ -1,5 +1,6 @@
 .title-create-container{
     display: flex;
+    align-items: center;
     gap: 85px;
 }
 .input-text{

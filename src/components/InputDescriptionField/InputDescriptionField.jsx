@@ -7,13 +7,14 @@ export const InputDescriptionField = ({description, handleDescription}) => {
       <div className="description-create-type">description:</div>
         <div className="input-title-container">
           <label className='input-field'>
-            <input 
+            <textarea 
               type="text" 
               name="input-description"
               className='input-description'
               value={description}
               onChange={e=>handleDescription(e.target.value)}
-            />
+            >
+            </textarea>
           </label>
       </div>
     </div>

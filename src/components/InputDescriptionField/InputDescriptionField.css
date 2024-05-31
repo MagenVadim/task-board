@@ -1,10 +1,12 @@
 .description-create-container{
     display: flex;
+    align-items: center;
     gap: 30px;
 }
 .input-description{
     width: 700px;
     height: 200px;
-    font-size: 20px;
+    font-size: 24px;
     padding-left: 10px;
+    font-family: 'Times New Roman', Times, serif;    
   }
