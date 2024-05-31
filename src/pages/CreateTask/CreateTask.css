@@ -29,6 +29,7 @@
 .select-create, .priority-create{    
     display: flex;
     font-size: 20px;
+    padding: 5px;
 }
 .btn-create{
     width: 100px;

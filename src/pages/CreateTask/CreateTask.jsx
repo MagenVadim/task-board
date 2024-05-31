@@ -5,16 +5,35 @@ import { useState} from 'react'
 import {InputTitleField} from '../../components/InputTitleField/InputTitleField'
 import { InputDescriptionField } from '../../components/InputDescriptionField/InputDescriptionField'
 import { SelectUser } from '../../components/SelectUser/SelectUser'
+const { v4: uuidv4 } = require('uuid');
+
+
 
 export const CreateTask = () => {
 
   const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')  
+  const [description, setDescription] = useState('')
+  const [newTask, setNewTask] = useState({})
+  const [newType, setNewType] = useState({})
+  const [newPriority, setNewPriority] = useState({})
+  const [selectedUsers, setSelectedUsers] = useState([])
+  const task_ID = uuidv4();
+ 
+  const taskCreate = () =>{
+    setNewTask({
+      id: task_ID,
+      type: "Completed",
+      priority:"High",
+      title:"Test",
+      description:"Increased automation of tests",
+      userID: ["03"],
+    })
+  }
 
   return (
     <div className='task-container'>
       <div className="task-content">
-          <div >ID:</div>
+          <div >ID: </div>
 
           <div className="type-create-container">
               <div>type:</div>
@@ -36,7 +55,7 @@ export const CreateTask = () => {
 
           <InputTitleField title={title} handleTitle={setTitle}/>     
           <InputDescriptionField description={description} handleDescription={setDescription}/>     
-          <SelectUser/>
+          <SelectUser selectedUsers={selectedUsers} setSelectedUsers={setSelectedUsers}/>
 
       </div>
           

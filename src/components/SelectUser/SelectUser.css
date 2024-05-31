@@ -1,8 +1,32 @@
 .select-user-container{
     display: flex;
-    gap: 75px;
+    gap: 75px;    
 }
 .select-user{
     display: flex;
     font-size: 20px;
+    padding: 5px;
+    max-height: 36px;
+}
+.user-assigned{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.user-assigned p{
+    margin: 0;    
+    padding: 5px 10px;
+    user-select: none
+}
+.user-sell{
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+}
+.remove-icon{
+padding: 0 5px;
+cursor: pointer;
+}
+.user-name{
+    border-right: 1px solid black;
 }
