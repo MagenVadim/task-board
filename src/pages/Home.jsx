@@ -1,9 +1,10 @@
 import { taskListDB } from '../db/tasks';
-import { Column } from '../components/Column';
+import { Column } from '../components/Column/Column';
 import { Header } from '../components/Header/Header'
 import { useEffect } from 'react';
 import {dataLoading} from '../store/taskSlice'
 import { useSelector, useDispatch } from 'react-redux'
+
 
 export const Home = () => { 
     const dispatch = useDispatch();

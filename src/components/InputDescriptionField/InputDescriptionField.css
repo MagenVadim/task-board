@@ -1,0 +1,10 @@
+.description-create-container{
+    display: flex;
+    gap: 30px;
+}
+.input-description{
+    width: 700px;
+    height: 200px;
+    font-size: 20px;
+    padding-left: 10px;
+  }

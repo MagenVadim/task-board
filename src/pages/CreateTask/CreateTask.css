@@ -3,15 +3,36 @@
     flex-direction: column;
     margin-top: 50px;
     margin-left: 50px;
+    margin-right: 50px;
     gap: 30px;
     font-size: 20px;
 }
-.create-type-conyainer{    
+.task-content{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border: 1px solid rgb(56, 53, 53);
+    padding: 20px;
+}
+
+.type-create-container{    
+        display: flex;
+        font-size: 20px;
+        gap:80px;
+    }
+.priority-create-container{    
     display: flex;
     font-size: 20px;
-    gap:50px;
+    gap:55px;
 }
-.select-create-type{    
+
+.select-create, .priority-create{    
     display: flex;
     font-size: 20px;
 }
+.btn-create{
+    width: 100px;
+    height: 30px;
+    font-size: 20px;;
+}
+

@@ -1,0 +1,8 @@
+.select-user-container{
+    display: flex;
+    gap: 75px;
+}
+.select-user{
+    display: flex;
+    font-size: 20px;
+}
