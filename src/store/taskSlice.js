@@ -6,15 +6,17 @@ const taskSlice = createSlice({
     reducers:{
         dataLoading(state, action){
             if (state.length===0){
-                state.push(...action.payload)
+                state.push(...action.payload);
             } 
         },
-
         removeTask(state, action){
-            return state.filter(el => el.id !== action.payload.id);          
+            return state.filter(el => el.id !== action.payload.id);            
+        },
+        addTask(state, action){
+            state.push(action.payload);
         }
     },
 });
 
-export const {dataLoading, removeTask} = taskSlice.actions;
+export const {dataLoading, removeTask, addTask} = taskSlice.actions;
 export default taskSlice.reducer;

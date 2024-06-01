@@ -1,29 +1,42 @@
 import { taskListDB } from '../db/tasks';
 import { Column } from '../components/Column/Column';
 import { Header } from '../components/Header/Header'
-import { useEffect } from 'react';
-import {dataLoading} from '../store/taskSlice'
+import { useState, useEffect } from 'react'
+import { dataLoading } from '../store/taskSlice'
 import { useSelector, useDispatch } from 'react-redux'
-
 
 export const Home = () => { 
     const dispatch = useDispatch();
+    const [upcomingList, setUpcomingList] = useState([]);
+    const [inProgressList, setInProgressList] = useState([]);
+    const [completedList, setCompletedList] = useState([]);
     
     const taskStore = useSelector(state => state.taskReducer) 
+
     useEffect(()=>{ 
         dispatch(dataLoading(taskListDB)) 
     },[])
-     
+
+    useEffect(()=>{ 
+        setUpcomingList(taskStore.filter(el=>
+            el.type==="Upcoming"))
+        setInProgressList (taskStore.filter(el=>
+            el.type==="In Progress"))
+        setCompletedList(taskStore.filter(el=>
+            el.type==="Completed")) 
+        console.log(taskStore)  
+    },[taskStore])   
+
    
-    const upcomingList = taskStore.filter(el=>
-        el.type==="Upcoming"
-    );
-    const inProgressList = taskStore.filter(el=>
-        el.type==="In Progress"
-    );
-    const completedList = taskStore.filter(el=>
-        el.type==="Completed"
-    );
+    // const upcomingList = taskStore.filter(el=>
+    //     el.type==="Upcoming"
+    // );
+    // const inProgressList = taskStore.filter(el=>
+    //     el.type==="In Progress"
+    // );
+    // const completedList = taskStore.filter(el=>
+    //     el.type==="Completed"
+    // );
 
   return (
      <div className="content">

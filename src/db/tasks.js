@@ -115,7 +115,7 @@ export const taskListDB=[
     {
         id: "15",
         type: "Completed",
-        priority:"<ediu,>",
+        priority:"Low",
         title:"Test",
         description:"Extend the test infrastructure",
         userID: ["05"],

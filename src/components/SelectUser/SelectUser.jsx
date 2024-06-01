@@ -19,7 +19,6 @@ export const SelectUser = ({selectedUsers, setSelectedUsers}) => {
     const handleSelect = (value)=>{
         const userObject = userListDB.find(user=> user.fullName === value)
         const newFilterList = filterList.filter(user=> user.fullName !== value)        
-   
         setSelectedUsers([...selectedUsers, userObject])
         setFilterList(newFilterList)        
     }
@@ -38,8 +37,8 @@ export const SelectUser = ({selectedUsers, setSelectedUsers}) => {
   return (
     <div className="select-user-container">
         <div className="user-title">Users:</div> 
-        <select name="select-user" className='select-user' onChange={(e)=>handleSelect(e.target.value)}>
-            <option>select user</option>
+        <select name="select-user" className='select-user'onChange={(e)=>handleSelect(e.target.value)}>
+            <option>select user:</option>
             {filterList.map(user=>
                 <option 
                     key={user.fullName} 
