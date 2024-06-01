@@ -27,17 +27,6 @@ export const Home = () => {
         console.log(taskStore)  
     },[taskStore])   
 
-   
-    // const upcomingList = taskStore.filter(el=>
-    //     el.type==="Upcoming"
-    // );
-    // const inProgressList = taskStore.filter(el=>
-    //     el.type==="In Progress"
-    // );
-    // const completedList = taskStore.filter(el=>
-    //     el.type==="Completed"
-    // );
-
   return (
      <div className="content">
             <div className="container">
