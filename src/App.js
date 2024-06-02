@@ -1,6 +1,6 @@
 import './App.css';
 import { Home } from './pages/Home';
-import { TaskView } from './pages/TaskView';
+import { TaskView } from './pages/TaskView/TaskView';
 import { UserCard } from './pages/UserCard/UserCard';
 import { CreateTask } from './pages/CreateTask/CreateTask';
 import { Routes, Route } from "react-router-dom";

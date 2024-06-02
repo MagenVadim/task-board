@@ -1,16 +1,17 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {userList} from '../../db/users'
 import { useDispatch } from 'react-redux'
 import {removeTask} from '../../store/taskSlice'
 import styles from './Task.css'
-
+import { useSelector } from 'react-redux'
 
 export const Task = ({id, description, userID, priority}) => {
-   
+
+    const userStore = useSelector(state => state.userReducer)
+
     const userCard = [] ;
     userID.forEach(element => {
-        userCard.push(userList.find(usfn => usfn.userID===element))
+        userCard.push(userStore.find(usfn => usfn.userID===element))
     });
   
     const dispatch = useDispatch();    
@@ -24,7 +25,7 @@ export const Task = ({id, description, userID, priority}) => {
             
             <div className="mt-3">
                 <p className="view-button float-right mb-0 mt-2">
-                    <Link to={`/task/view/${id}`}>
+                    <Link to={`/task/view/${id}`} state={{id}}>
                         <button type="button" className="btn btn-success btn-sm waves-effect waves-light">View</button>
                     </Link>                    
                 </p>

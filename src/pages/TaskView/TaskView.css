@@ -1,0 +1,31 @@
+.task-content div{
+    display: flex;
+}
+.id-task-view{
+    margin-right: 12px;
+}
+.task-view{
+    margin: 0 0;
+    padding-left: 100px;
+}
+.users-task-view{
+    display: flex;
+    padding-left: 100px;
+    margin: 0 0;
+}
+.view-user-card{
+    display: flex;
+    align-items: center;
+    border: 1px solid grey;
+    padding: 0 10px;
+    border-radius: 15px;
+    gap: 10px;
+}
+.view-user-container{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.user-title{
+    margin-right: 130px;
+}
