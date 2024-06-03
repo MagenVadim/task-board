@@ -5,6 +5,7 @@ import {removeTask} from '../../store/taskSlice'
 import styles from './Task.css'
 import { useSelector } from 'react-redux'
 
+
 export const Task = ({id, description, userID, priority}) => {
 
     const userStore = useSelector(state => state.userReducer)

@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux'
 import { useLocation } from "react-router-dom"
 import styles from './TaskView.css'
-import { useState ,useEffect } from 'react'
+
+
 
 export const TaskView = () => {
   const location = useLocation()
@@ -10,6 +11,7 @@ export const TaskView = () => {
 
   const taskStore = useSelector(state => state.taskReducer) 
   const userStore = useSelector(state => state.userReducer) 
+
 
   const taskType = taskStore.find(el => el.id===id).type
   const taskPriority = taskStore.find(el => el.id===id).priority
