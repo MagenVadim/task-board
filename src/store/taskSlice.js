@@ -15,14 +15,14 @@ const taskSlice = createSlice({
         addTask(state, action){
             state.push(action.payload);
         },
-        editTaskType(state, action){
-            state.find(el => el.id===action.payload.id).type=action.payload.type
-            
+        editTask(state, action){
+            const indexTask = state.indexOf(state.find(el => el.id===action.payload.id))    
+            state.splice(indexTask, 1, action.payload.taskObject)              
         }
     },
 });
 
 
 
-export const {dataLoading, removeTask, addTask, editTaskType} = taskSlice.actions;
+export const {dataLoading, removeTask, addTask, editTask} = taskSlice.actions;
 export default taskSlice.reducer;

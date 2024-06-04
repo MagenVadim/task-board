@@ -17,8 +17,7 @@ export const CreateTask = () => {
   const [newPriority, setNewPriority] = useState('')
   const [selectedUsers, setSelectedUsers] = useState([])
   const array_ID=[];
-  const task_ID = uuidv4();
- console.log(newType)
+  const task_ID = uuidv4(); 
   
   const selectedUsers_userID = ()=>{    
     selectedUsers.forEach(el=>

@@ -1,22 +1,23 @@
 import React from 'react'
 import SelectType from '../../components/CreateTask/SelectType'
 import { useSelector, useDispatch } from 'react-redux'
-import { editTaskType } from '../../store/taskSlice'
-
+import { editTask } from '../../store/taskSlice'
+import { useState } from 'react'
 
 
 export const TaskEdit = () => {
     const dispatch = useDispatch();  
     const taskStore = useSelector(state => state.taskReducer)   
-    const id = "01"
-    const taskObject = taskStore.find(el =>el.id===id)
-    const selectedType = taskObject.type
+    const id = "03"
+    const task = taskStore.find(el =>el.id===id)
+    const selectedType = taskStore.type
+    const taskObject= {...task}
 
-    const handleType=(type)=>{
-      dispatch(editTaskType({id, type}))
-    }
+    
+    const handleType = (type)=>{
+      taskObject.type=type    
+    }     
 
-    console.log(taskStore)
 
   return (
     <div className='task-container'>
@@ -29,7 +30,7 @@ export const TaskEdit = () => {
 
             <div className="type-create-container">
                 <div>type:</div>
-                <SelectType selectedType={selectedType} handleType={handleType}/>
+                <SelectType selectedType={selectedType} handleType={handleType} id={id}/>
             </div>
 
             <div className="priority-create-container">
@@ -56,7 +57,7 @@ export const TaskEdit = () => {
         </div>
             
 
-            <button className='btn-create'>Edit</button>       
+            <button className='btn-create' onClick={()=>dispatch(editTask({id, taskObject}))}>Edit Task</button>       
     </div>
   )
 }
