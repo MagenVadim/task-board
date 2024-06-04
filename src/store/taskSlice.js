@@ -14,11 +14,15 @@ const taskSlice = createSlice({
         },
         addTask(state, action){
             state.push(action.payload);
+        },
+        editTaskType(state, action){
+            state.find(el => el.id===action.payload.id).type=action.payload.type
+            
         }
     },
 });
 
 
 
-export const {dataLoading, removeTask, addTask} = taskSlice.actions;
+export const {dataLoading, removeTask, addTask, editTaskType} = taskSlice.actions;
 export default taskSlice.reducer;

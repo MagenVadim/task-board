@@ -1,4 +1,5 @@
 import styles from './CreateTask.css'
+import SelectType from '../../components/CreateTask/SelectType'
 import { useState, useEffect } from 'react'
 import {InputTitleField} from '../../components/InputTitleField/InputTitleField'
 import { InputDescriptionField } from '../../components/InputDescriptionField/InputDescriptionField'
@@ -46,12 +47,7 @@ selectedUsers_userID()
 
           <div className="type-create-container">
               <div>type:</div>
-              <select name="select-create" className='select-create' onChange={(e)=>setNewType(e.target.value)}>
-                  <option>select type: </option>
-                  <option value='Upcoming'>Upcoming</option>
-                  <option value='In Progress'>In Progress</option>
-                  <option value='Completed'>Completed</option>
-              </select>
+              <SelectType handleType={setNewType}/>
           </div>
 
           <div className="priority-create-container">

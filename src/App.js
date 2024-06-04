@@ -3,6 +3,7 @@ import { Home } from './pages/Home';
 import { TaskView } from './pages/TaskView/TaskView';
 import { UserCard } from './pages/UserCard/UserCard';
 import { CreateTask } from './pages/CreateTask/CreateTask';
+import { TaskEdit } from './pages/TaskEdit/TaskEdit';
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
             <Route path='/task/view/:id' element={<TaskView/>}/>
             <Route path='/users/card/:fullName' element={<UserCard/>}/>
             <Route path='/create' element={<CreateTask/>}/>
+            <Route path='/task/edit/:id' element={<TaskEdit/>}/>
+
           </Routes>
        </>
   );
