@@ -1,5 +1,6 @@
 import styles from './CreateTask.css'
 import SelectType from '../../components/CreateTask/SelectType'
+import SelectPriority from '../../components/CreateTask/SelectPriority'
 import { useState, useEffect } from 'react'
 import {InputTitleField} from '../../components/InputTitleField/InputTitleField'
 import { InputDescriptionField } from '../../components/InputDescriptionField/InputDescriptionField'
@@ -51,12 +52,7 @@ selectedUsers_userID()
 
           <div className="priority-create-container">
             <div>priority:</div>
-            <select name="priority-create" className='priority-create' onChange={(e)=>setNewPriority(e.target.value)}>
-                  <option>select priority: </option>
-                  <option value='High'>High</option>
-                  <option value='Medium'>Medium</option>
-                  <option value='Low'>Low</option>
-              </select>
+            <SelectPriority handlePriority={setNewPriority}/>
           </div>
 
           <InputTitleField title={newTitle} handleTitle={setNewTitle}/>     

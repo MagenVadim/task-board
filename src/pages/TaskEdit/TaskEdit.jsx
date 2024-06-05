@@ -1,5 +1,6 @@
 import React from 'react'
 import SelectType from '../../components/CreateTask/SelectType'
+import SelectPriority from '../../components/CreateTask/SelectPriority'
 import { useSelector, useDispatch } from 'react-redux'
 import { editTask } from '../../store/taskSlice'
 import { useState } from 'react'
@@ -8,15 +9,18 @@ import { useState } from 'react'
 export const TaskEdit = () => {
     const dispatch = useDispatch();  
     const taskStore = useSelector(state => state.taskReducer)   
-    const id = "03"
+    const id = "07"
     const task = taskStore.find(el =>el.id===id)
-    const selectedType = taskStore.type
-    const taskObject= {...task}
+    const selectedType = task.type
+    const selectedPriority = task.priority
 
-    
+    const taskObject= {...task}    
     const handleType = (type)=>{
       taskObject.type=type    
     }     
+    const handlePriority = (priority)=>{
+      taskObject.priority=priority  
+    }    
 
 
   return (
@@ -34,23 +38,22 @@ export const TaskEdit = () => {
             </div>
 
             <div className="priority-create-container">
-            <div>priority:</div>
-            <p className='task-view'></p>
+              <div>priority:</div>
+              <SelectPriority selectedPriority={selectedPriority} handlePriority={handlePriority} id={id}/>
             </div>
 
             <div className="title-create-container">
-            <div className="title-create-type">title:</div>     
-            <p className='task-view'></p>         
+              <div className="title-create-type">title:</div>     
+              <p className='task-view'></p>         
             </div>
 
             <div className="description-create-container">
-            <div className="description-create-type">description:</div>
-            <p className='task-view'></p>
+              <div className="description-create-type">description:</div>
+              <p className='task-view'></p>
             </div>
 
             <div className="view-user-container">
             <div className="user-title">Users:</div>
-
             
             </div>
 
