@@ -22,7 +22,9 @@ export const Task = ({id, description, userID, priority}) => {
         <li className="task-warning ui-sortable-handle">
             <div className={`priority-${priority} float-right`}> 
                 {priority}
-            </div>{description}            
+            </div>
+            
+            {description}            
             
             <div className="mt-3">
                 <p className="view-button float-right mb-0 mt-2">

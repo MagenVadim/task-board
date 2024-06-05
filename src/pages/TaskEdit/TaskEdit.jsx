@@ -1,27 +1,36 @@
 import React from 'react'
 import SelectType from '../../components/CreateTask/SelectType'
 import SelectPriority from '../../components/CreateTask/SelectPriority'
+import {InputTitleField} from '../../components/InputTitleField/InputTitleField'
+import {InputDescriptionField} from '../../components/InputDescriptionField/InputDescriptionField'
 import { useSelector, useDispatch } from 'react-redux'
 import { editTask } from '../../store/taskSlice'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 export const TaskEdit = () => {
     const dispatch = useDispatch();  
     const taskStore = useSelector(state => state.taskReducer)   
-    const id = "07"
+    const id = "09"
     const task = taskStore.find(el =>el.id===id)
+    const taskObject= {...task}  
+
     const selectedType = task.type
     const selectedPriority = task.priority
-
-    const taskObject= {...task}    
+    const [taskTitle, setTaskTitle] = useState(task.title)
+    const [taskDesc, setTaskDesc] = useState(task.description)
+   
+    useEffect(()=>{
+      taskObject.task = taskTitle;
+      taskObject.description = taskDesc;
+    }, [taskTitle, taskDesc])
+      
     const handleType = (type)=>{
       taskObject.type=type    
     }     
     const handlePriority = (priority)=>{
       taskObject.priority=priority  
     }    
-
 
   return (
     <div className='task-container'>
@@ -42,15 +51,10 @@ export const TaskEdit = () => {
               <SelectPriority selectedPriority={selectedPriority} handlePriority={handlePriority} id={id}/>
             </div>
 
-            <div className="title-create-container">
-              <div className="title-create-type">title:</div>     
-              <p className='task-view'></p>         
-            </div>
+            <InputTitleField title={taskTitle} handleTitle={setTaskTitle}/>     
 
-            <div className="description-create-container">
-              <div className="description-create-type">description:</div>
-              <p className='task-view'></p>
-            </div>
+            <InputDescriptionField description={taskDesc} handleDescription={setTaskDesc}/> 
+
 
             <div className="view-user-container">
             <div className="user-title">Users:</div>
