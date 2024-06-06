@@ -6,12 +6,16 @@ import {InputDescriptionField} from '../../components/InputDescriptionField/Inpu
 import { useSelector, useDispatch } from 'react-redux'
 import { editTask } from '../../store/taskSlice'
 import { useState, useEffect } from 'react'
+import { useLocation } from "react-router-dom"
 
 
 export const TaskEdit = () => {
     const dispatch = useDispatch();  
-    const taskStore = useSelector(state => state.taskReducer)   
-    const id = "09"
+    const taskStore = useSelector(state => state.taskReducer) 
+
+    const location = useLocation()
+    const { id } = location.state
+    
     const task = taskStore.find(el =>el.id===id)
     const taskObject= {...task}  
 
@@ -21,7 +25,7 @@ export const TaskEdit = () => {
     const [taskDesc, setTaskDesc] = useState(task.description)
    
     useEffect(()=>{
-      taskObject.task = taskTitle;
+      taskObject.title = taskTitle;
       taskObject.description = taskDesc;
     }, [taskTitle, taskDesc])
       

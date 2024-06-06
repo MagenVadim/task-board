@@ -6,7 +6,7 @@ import styles from './Task.css'
 import { useSelector } from 'react-redux'
 
 
-export const Task = ({id, description, userID, priority}) => {
+export const Task = ({id, description, taskTitle, userID, priority}) => {
 
     const userStore = useSelector(state => state.userReducer)
 
@@ -24,7 +24,9 @@ export const Task = ({id, description, userID, priority}) => {
                 {priority}
             </div>
             
-            {description}            
+            <h2 className="task-title">{taskTitle}</h2>
+            {description}  
+
             
             <div className="mt-3">
                 <p className="view-button float-right mb-0 mt-2">

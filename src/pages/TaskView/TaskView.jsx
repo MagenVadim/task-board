@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux'
 import { useLocation } from "react-router-dom"
+import {Link} from 'react-router-dom'
 import styles from './TaskView.css'
 
 
@@ -67,8 +68,10 @@ export const TaskView = () => {
 
       </div>
           
-
-        <button className='btn-create'>Edit</button>       
+      <Link to={`/task/edit/${id}`} state={{id}}>
+        <button className='btn-create'>Edit</button>  
+      </Link>
+             
     </div>
 
   )

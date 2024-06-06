@@ -3,6 +3,7 @@ import { Task } from '../Task/Task';
 
 
 export const Column = ({title, cardList}) => {
+  console.log(cardList)
   return (
       <div className="col-lg-4">
         <div className="card-box">
@@ -12,6 +13,7 @@ export const Column = ({title, cardList}) => {
                     <Task 
                       key={el.id}                       
                       id={el.id} 
+                      taskTitle={el.title}
                       description={el.description} 
                       userID={el.userID}
                       priority={el.priority}
