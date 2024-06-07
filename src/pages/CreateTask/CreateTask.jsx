@@ -40,6 +40,8 @@ selectedUsers_userID()
     console.log()
   },[])
 
+  console.log(selectedUsers)
+
   return (
     <div className='task-container'>
       <div className="task-content">

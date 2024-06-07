@@ -8,12 +8,24 @@ import Image from "../../../src/image/close.png"
 export const SelectUser = ({selectedUsers, setSelectedUsers}) => {
 
     const [filterList, setFilterList] = useState([])
-    const [userListDB, setUserListDB] = useState([])
-    
-
+    const [userListDB, setUserListDB] = useState([])    
+   
     useEffect(()=>{
-      setUserListDB([...userList])
-      setFilterList([...userList])
+        const usersID=[]
+        const usersDB = userList
+        const usersFiltered = []
+        if (selectedUsers.length>0){
+            selectedUsers.forEach(el=>usersID.push(el.userID));
+            usersDB.forEach(user=>{ !usersID.includes(user.userID) && usersFiltered.push(user);                
+            })   
+            setUserListDB([...userList]) 
+            setFilterList(usersFiltered)
+
+        } else {
+            setUserListDB([...userList])
+            setFilterList([...userList])
+        }
+
     },[])
   
     const handleSelect = (value)=>{
