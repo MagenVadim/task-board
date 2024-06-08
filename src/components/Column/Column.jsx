@@ -3,7 +3,7 @@ import { Task } from '../Task/Task';
 
 
 export const Column = ({title, cardList}) => {
-  console.log(cardList)
+
   return (
       <div className="col-lg-4">
         <div className="card-box">

@@ -5,55 +5,47 @@ import { userList } from '../../db/users';
 import Image from "../../../src/image/close.png"
 
 
-export const SelectUser = ({selectedUsers, setSelectedUsers}) => {
+export const SelectUser = ({id, selectedUsers, setSelectedUsers}) => {    
+    const userListDB = userList
+    const usersID=[] 
+    const [filterList, setFilterList] = useState([])  
 
-    const [filterList, setFilterList] = useState([])
-    const [userListDB, setUserListDB] = useState([])    
-   
-    useEffect(()=>{
-        const usersID=[]
-        const usersDB = userList
+    useEffect(()=>{ 
         const usersFiltered = []
-        if (selectedUsers.length>0){
-            selectedUsers.forEach(el=>usersID.push(el.userID));
-            usersDB.forEach(user=>{ !usersID.includes(user.userID) && usersFiltered.push(user);                
-            })   
-            setUserListDB([...userList]) 
-            setFilterList(usersFiltered)
+        selectedUsers.forEach(el=>{
+            usersID.push(el.userID)
+        }); 
+        userListDB.forEach(user=>{                
+         !usersID.includes(user.userID) && usersFiltered.push(user)                 
+        }) 
+        setFilterList(usersFiltered)
+    },[selectedUsers])   
 
-        } else {
-            setUserListDB([...userList])
-            setFilterList([...userList])
-        }
-
-    },[])
-  
     const handleSelect = (value)=>{
-        const userObject = userListDB.find(user=> user.fullName === value)
-        const newFilterList = filterList.filter(user=> user.fullName !== value)        
-        setSelectedUsers([...selectedUsers, userObject])
+        const newUserObject =  userListDB.find(user => user.fullName === value)
+        setSelectedUsers([...selectedUsers, newUserObject]) 
+
+        const newFilterList = filterList.filter(user=> user.fullName !== value)
         setFilterList(newFilterList)        
     }
 
-    useEffect(()=>{
-        console.log()
-      }, [selectedUsers])
-
-    const deleteUser = (id)=>{  
-        const userObject = userListDB.find(user=> user.fullName === id)
-        const newSelectedUsers = selectedUsers.filter(user=> user.fullName !== id)
-        setFilterList([...filterList, userObject])          
-        setSelectedUsers(newSelectedUsers)
+    const deleteUser = (fullName)=>{ 
+        const newSelectedUsers = selectedUsers.filter(user => user.fullName !== fullName)        
+        setSelectedUsers(newSelectedUsers) 
+               
+        const newUserObject = userListDB.find(user => user.fullName === fullName)
+        setFilterList([...filterList, newUserObject])
     }
+
 
   return (
     <div className="select-user-container">
         <div className="user-title">Users:</div> 
-        <select name="select-user" className='select-user'onChange={(e)=>handleSelect(e.target.value)}>
+        <select name="select-user" className='select-user' onChange={(e)=>handleSelect(e.target.value)}>
             <option>select user:</option>
             {filterList.map(user=>
                 <option 
-                    key={user.fullName} 
+                    key={`${id}-${user.fullName}`} 
                     value={user.fullName}
                 >{user.fullName}
                 </option>
@@ -61,7 +53,7 @@ export const SelectUser = ({selectedUsers, setSelectedUsers}) => {
         </select>
         <div className='user-assigned'>
             {selectedUsers.map(user=>
-                <div key={user.fullName} className="user-sell">
+                <div key={`${id}-${user.fullName}`} className="user-sell">
                     <p className="user-name">{user.fullName}</p>
                     <img 
                         className="remove-icon" 

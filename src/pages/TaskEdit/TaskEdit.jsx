@@ -31,17 +31,25 @@ export const TaskEdit = () => {
     const usersID = task.userID
     const users = []
 
-    usersID.forEach(id => {
-      users.push(userStore.find(el => el.userID === id))      
-    });
-     
-    console.log(userStore)
-    console.log(users)  
-
     useEffect(()=>{
       taskObject.title = taskTitle;
       taskObject.description = taskDesc;
-    }, [taskTitle, taskDesc])
+
+      const usersID = [];
+      selectedUsers.forEach(user =>{
+        usersID.push(user.userID)
+      });
+      taskObject.userID = usersID;
+
+    }, [taskTitle, taskDesc, selectedUsers])
+
+    useEffect(()=>{
+      usersID.forEach(id => {
+        users.push(userStore.find(el => el.userID === id))      
+      });
+      setSelectedUsers(users)
+    }, [])
+
       
     const handleType = (type)=>{
       taskObject.type=type    
@@ -71,7 +79,7 @@ export const TaskEdit = () => {
 
             <InputTitleField title={taskTitle} handleTitle={setTaskTitle}/>   
             <InputDescriptionField description={taskDesc} handleDescription={setTaskDesc}/> 
-            <SelectUser selectedUsers={users} setSelectedUsers={setSelectedUsers}/>
+            <SelectUser id={id} selectedUsers={selectedUsers} setSelectedUsers={setSelectedUsers}/>
 
 
         </div>
