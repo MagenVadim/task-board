@@ -37,7 +37,6 @@ export const SelectUser = ({id, selectedUsers, setSelectedUsers}) => {
         setFilterList([...filterList, newUserObject])
     }
 
-
   return (
     <div className="select-user-container">
         <div className="user-title">Users:</div> 
@@ -54,14 +53,18 @@ export const SelectUser = ({id, selectedUsers, setSelectedUsers}) => {
         <div className='user-assigned'>
             {selectedUsers.map(user=>
                 <div key={`${id}-${user.fullName}`} className="user-sell">
-                    <p className="user-name">{user.fullName}</p>
-                    <img 
-                        className="remove-icon" 
-                        id={user.fullName}
-                        src={Image} 
-                        alt="remove-icon"
-                        onClick={(e)=>deleteUser(e.target.id)}
-                    />
+                    <div className="view-user-card">
+                        <img src={user.url} alt="task-user" className="thumb-sm rounded-circle mr-2"/>
+                        <p className="user-name">{user.fullName}</p>
+                        <img 
+                            className="remove-icon" 
+                            id={user.fullName}
+                            src={Image} 
+                            alt="remove-icon"
+                            onClick={(e)=>deleteUser(e.target.id)}
+                        />
+                    </div>
+                    
                 </div>
                 
             )}

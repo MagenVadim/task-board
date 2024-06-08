@@ -19,15 +19,16 @@
     padding: 5px 10px;
     user-select: none
 }
-.user-sell{
-    border: 1px solid black;
+.user-sell{   
     display: flex;
     align-items: center;
+    
 }
 .remove-icon{
 padding: 0 5px;
 cursor: pointer;
 }
 .user-name{
-    border-right: 1px solid black;
+    border-right: 1px solid grey;
+    margin: 15px 0 !important;
 }
