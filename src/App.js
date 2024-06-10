@@ -17,7 +17,7 @@ function App() {
             <Route path='/users/card/:fullName' element={<UserCard/>}/>
             <Route path='/create' element={<CreateTask/>}/>
             <Route path='/task/edit/:id' element={<TaskEdit/>}/>
-            <Route path='users' element={<UsersDashboard/>}/>
+            <Route path='/users' element={<UsersDashboard/>}/>
           </Routes>
        </>
   );
