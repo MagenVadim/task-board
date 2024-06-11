@@ -1,5 +1,6 @@
 import './App.css';
 import { Login } from './pages/Login/Login';
+import { ForgotPassw } from './pages/Login/ForgotPassw';
 import { Home } from './pages/Home';
 import { TaskView } from './pages/TaskView/TaskView';
 import { UserCard } from './pages/UserCard/UserCard';
@@ -14,6 +15,7 @@ function App() {
        <>
           <Routes>
             <Route path='/' element={<Login/>}/>
+            <Route path='/forgotpassw' element={<ForgotPassw/>}/>
             <Route path='/home' element={<Home/>}/>
             <Route path='/task/view/:id' element={<TaskView/>}/>
             <Route path='/users/card/:fullName' element={<UserCard/>}/>

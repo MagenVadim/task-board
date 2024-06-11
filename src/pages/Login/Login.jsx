@@ -1,24 +1,44 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import styles from './Login.css'
 
 export const Login = () => {
   return (
-    <div className='login-box'>
-        <label className='username-input'>
-            <input 
-              type="text" 
-              name="input-text"
-              className='input-text'
-            />
-        </label>
-        <label className='password-input'>
-            <input 
-              type="text" 
-              name="input-text"
-              className='input-text'
-            />
-        </label>
+    <div className="registr-container">
+
+
+      <div className='login-box'>
+        <div className="input-box">
+          <label className='username-input'>
+                <input 
+                  type="text" 
+                  placeholder="Email"
+                  name="input-text"
+                  className='input-login'
+                />
+            </label>
+            <label className='password-input'>
+                <input 
+                  type="text" 
+                  placeholder="Password"
+                  name="input-text"
+                  className='input-login'
+                />
+            </label>
+        </div>
+
+        <Link to={`/forgotpassw`}>
+          <p className='forgot-passw'>Forgot password?</p>
+        </Link>       
+
+        <button className='btn-login'>
+          Login
+        </button>       
+      </div>
+
+
     </div>
+    
   )
 }
 
