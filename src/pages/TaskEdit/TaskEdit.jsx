@@ -7,7 +7,7 @@ import { SelectUser } from '../../components/SelectUser/SelectUser'
 import { useSelector, useDispatch } from 'react-redux'
 import { editTask } from '../../store/taskSlice'
 import { useState, useEffect } from 'react'
-import { useLocation } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
 
 export const TaskEdit = () => {
@@ -15,8 +15,7 @@ export const TaskEdit = () => {
     const taskStore = useSelector(state => state.taskReducer) 
     const userStore = useSelector(state => state.userReducer) 
 
-    const location = useLocation()
-    const { id } = location.state
+    const {id} = useParams(); 
     
     const task = taskStore.find(el =>el.id===id)
     const taskObject= {...task}  

@@ -1,14 +1,12 @@
 import { useSelector } from 'react-redux'
-import { useLocation } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import {Link} from 'react-router-dom'
 import styles from './TaskView.css'
 
 
 
 export const TaskView = () => {
-  const location = useLocation()
-  const { id } = location.state
-
+  const {id} = useParams(); 
 
   const taskStore = useSelector(state => state.taskReducer) 
   const userStore = useSelector(state => state.userReducer) 
@@ -58,17 +56,18 @@ export const TaskView = () => {
         <div className="view-user-container">
           <div className="user-title">Users:</div>
           {userCard.map(user => 
-            <div key = {user.userID} className="view-user-card">
-              <img src={user.url} alt="task-user" className="thumb-sm rounded-circle mr-2"/>
-              <p key={user.fullName} className='users-name-view'>{user.fullName}</p>  
-            </div>                      
-          )}
-          
+            <Link to={`/users/card/${user.fullName}`}>
+              <div key = {user.userID} className="view-user-card">
+                <img src={user.url} alt="task-user" className="thumb-sm rounded-circle mr-2"/>
+                <p key={user.fullName} className='users-name-view'>{user.fullName}</p>  
+              </div> 
+            </Link>                
+          )}          
         </div>
 
       </div>
           
-      <Link to={`/task/edit/${id}`} state={{id}}>
+      <Link to={`/task/edit/${id}`}>
         <button className='btn-create'>Edit</button>  
       </Link>
              

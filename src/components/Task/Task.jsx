@@ -30,7 +30,7 @@ export const Task = ({id, description, taskTitle, userID, priority}) => {
             
             <div className="mt-3">
                 <p className="view-button float-right mb-0 mt-2">
-                    <Link to={`/task/view/${id}`} state={{id}}>
+                    <Link to={`/task/view/${id}`}>
                         <button type="button" className="btn btn-success btn-sm waves-effect waves-light">View</button>
                     </Link>                    
                 </p>

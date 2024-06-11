@@ -1,4 +1,5 @@
 import './App.css';
+import { Login } from './pages/Login/Login';
 import { Home } from './pages/Home';
 import { TaskView } from './pages/TaskView/TaskView';
 import { UserCard } from './pages/UserCard/UserCard';
@@ -12,7 +13,8 @@ function App() {
   return (
        <>
           <Routes>
-            <Route path='/' element={<Home/>}/>
+            <Route path='/' element={<Login/>}/>
+            <Route path='/home' element={<Home/>}/>
             <Route path='/task/view/:id' element={<TaskView/>}/>
             <Route path='/users/card/:fullName' element={<UserCard/>}/>
             <Route path='/create' element={<CreateTask/>}/>
