@@ -11,14 +11,20 @@ export const UsersDashboard = () => {
   return (
     <div className="users-user-list">
       {userStore.map(user=>
-      <Link to={`/users/card/${user.fullName}`}>
-        <div key={user.fullName} className="users-user-card">
-          <img src={user.url} alt="task-user" className="thumb-sm rounded-circle mr-2"/>
-          <p >{user.fullName}</p>
+        <div key={user.fullName} className="users-table">
+          <Link to={`/users/card/${user.fullName}`}>
+            <div className="users-user-card">
+              <img src={user.url} alt="task-user" className="thumb-sm rounded-circle mr-2"/>
+              <p >{user.fullName}</p>
+            </div>
+          </Link>
+          <div className="details">
+            <p className="user-details">{user.position}</p>
+          </div>
+          <div className="details">
+            <p className="user-details">{user.city}</p>
+          </div>
         </div>
-      </Link>
-
-        
       )}
     </div>
   )

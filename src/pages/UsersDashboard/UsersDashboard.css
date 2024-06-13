@@ -15,3 +15,16 @@
     width: 200px;
     cursor: pointer;
 }
+.users-table{
+    display: flex;
+    gap: 20px;
+    
+}
+.details{
+    border: 1px solid grey;
+    border-radius: 15px;
+    width: 150px;
+}
+.user-details{
+    text-align: center;
+}

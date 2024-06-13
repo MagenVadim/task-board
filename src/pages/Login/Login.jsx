@@ -31,9 +31,12 @@ export const Login = () => {
           <p className='forgot-passw'>Forgot password?</p>
         </Link>       
 
-        <button className='btn-login'>
-          Login
-        </button>       
+        <Link to={`/home`}>
+          <button className='btn-login'>
+            Login
+          </button>     
+        </Link>    
+  
       </div>
 
 
