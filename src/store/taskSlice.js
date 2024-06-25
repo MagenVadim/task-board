@@ -1,4 +1,22 @@
-import { createSlice} from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+export const fetchUsers = createAsyncThunk(
+    'userList/fetchUsers',
+    async function(){
+        const response = await fetch('http://localhost:4444/consumers');
+        const data = await response.json();
+        return data;
+    }
+)
+
+export const fetchTasks = createAsyncThunk(
+    'taskList/fetchTasks',
+    async function(){
+        const response = await fetch('http://localhost:4444/tasks');
+        const data = await response.json();
+        return data;
+    }
+)
 
 const taskSlice = createSlice({
     name: "taskList",
@@ -20,6 +38,12 @@ const taskSlice = createSlice({
             state.splice(indexTask, 1, action.payload.taskObject)              
         }
     },
+    extraReducers:{
+        [fetchTasks.pending]:(state, action)=>{},
+        [fetchTasks.fulfilled]:(state, action)=>{},
+        [fetchTasks.rejected]:(state, action)=>{},
+
+    }
 });
 
 
