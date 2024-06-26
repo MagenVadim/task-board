@@ -3,7 +3,8 @@ import { userList } from '../db/users'
 import { Column } from '../components/Column/Column';
 import { Header } from '../components/Header/Header'
 import { useState, useEffect } from 'react'
-import { dataLoading } from '../store/taskSlice'
+import { dataLoading, fetchTasks} from '../store/taskSlice'
+
 import { userLoading } from '../store/userSlice'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -16,18 +17,20 @@ export const Home = () => {
     const taskStore = useSelector(state => state.taskReducer)     
 
     useEffect(()=>{ 
-        dispatch(dataLoading(taskListDB))
+        dispatch(fetchTasks())        
         dispatch(userLoading(userList))
     },[])
 
-    useEffect(()=>{ 
-        setUpcomingList(taskStore.filter(el=>
-            el.type==="Upcoming"))
-        setInProgressList (taskStore.filter(el=>
-            el.type==="In Progress"))
-        setCompletedList(taskStore.filter(el=>
-            el.type==="Completed"))          
-    },[taskStore])   
+
+
+    // useEffect(()=>{ 
+    //     setUpcomingList(taskStore.filter(el=>
+    //         el.type==="Upcoming"))
+    //     setInProgressList (taskStore.filter(el=>
+    //         el.type==="In Progress"))
+    //     setCompletedList(taskStore.filter(el=>
+    //         el.type==="Completed"))          
+    // },[taskStore])   
 
   return (
      <div className="content">
